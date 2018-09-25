@@ -10,25 +10,64 @@ import XCTest
 @testable import NightVale
 
 class NightValeTests: XCTestCase {
-
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    
+    static let testBundle = Bundle(for:NightValeTests.self)
+    fileprivate var mockSession: MockSession!
+    
+    let weatherURL = testBundle.url(forResource: "weather", withExtension: "json")!
+    
+    func JSONData(from url: URL) -> Data? {
+        do {
+            return try Data(contentsOf: url)
+        } catch {
+            return nil
         }
     }
-
+    
+    var client: MockHTTPClient!
+    
+    override func setUp() {
+        super.setUp()
+    }
+    
+    override func tearDown() {
+        super.tearDown()
+    }
+    
+    func testThatClientCanGETWeather() {
+        guard let expectedData = JSONData(from: weatherURL) else {
+            XCTFail("Failed to get people data.")
+            return
+        }
+        var receivedData: Data!
+        mockSession = mockSession(data: expectedData)
+        client = MockHTTPClient(session: mockSession)
+        
+        client.get(.forecast) { (data, _, _) in
+            receivedData = data
+        }
+        
+        XCTAssertEqual(receivedData, expectedData, "The `Data` should match.")
+    }
+    
+    fileprivate class MockSession: MockURLSession {
+        let dataTask = MockDataTask()
+        let data: Data
+        
+        init(data: Data) {
+            self.data = data
+        }
+        
+        fileprivate func dataTask(with url: URL,
+                                  completionHandler: @escaping (Data?, URLResponse?, Error?)
+            -> Void)
+            -> MockURLSessionDataTask {
+                completionHandler(data, nil, nil)
+                return dataTask
+        }
+    }
+    
+    fileprivate class MockDataTask: MockURLSessionDataTask {
+        func resume() {}
+    }
 }

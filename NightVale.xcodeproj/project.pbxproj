@@ -7,12 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F49BBDF7215A965F00AD0168 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49BBDF6215A965F00AD0168 /* AppDelegate.swift */; };
-		F49BBDF9215A965F00AD0168 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49BBDF8215A965F00AD0168 /* ViewController.swift */; };
+		F495DAE7215ABBB800C20C33 /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = F495DAE6215ABBB800C20C33 /* MockURLSession.swift */; };
+		F495DAE9215ABC5D00C20C33 /* MockURLSessionDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = F495DAE8215ABC5D00C20C33 /* MockURLSessionDataTask.swift */; };
+		F495DAEB215AD38E00C20C33 /* weather.json in Resources */ = {isa = PBXBuildFile; fileRef = F495DAEA215AD38E00C20C33 /* weather.json */; };
 		F49BBDFB215A966000AD0168 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F49BBDFA215A966000AD0168 /* Assets.xcassets */; };
 		F49BBDFE215A966000AD0168 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F49BBDFC215A966000AD0168 /* Main.storyboard */; };
 		F49BBE0A215A966000AD0168 /* NightValeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49BBE09215A966000AD0168 /* NightValeTests.swift */; };
 		F49BBE15215A966000AD0168 /* NightValeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49BBE14215A966000AD0168 /* NightValeUITests.swift */; };
+		F49BBE25215AACEC00AD0168 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49BBDF6215A965F00AD0168 /* AppDelegate.swift */; };
+		F49BBE26215AACEC00AD0168 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49BBDF8215A965F00AD0168 /* ViewController.swift */; };
+		F49BBE28215AAD8D00AD0168 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49BBE27215AAD8D00AD0168 /* HTTPClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +37,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F495DAE6215ABBB800C20C33 /* MockURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
+		F495DAE8215ABC5D00C20C33 /* MockURLSessionDataTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSessionDataTask.swift; sourceTree = "<group>"; };
+		F495DAEA215AD38E00C20C33 /* weather.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = weather.json; sourceTree = "<group>"; };
 		F49BBDF3215A965F00AD0168 /* NightVale.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NightVale.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F49BBDF6215A965F00AD0168 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F49BBDF8215A965F00AD0168 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -46,6 +53,7 @@
 		F49BBE10215A966000AD0168 /* NightValeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NightValeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F49BBE14215A966000AD0168 /* NightValeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NightValeUITests.swift; sourceTree = "<group>"; };
 		F49BBE16215A966000AD0168 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F49BBE27215AAD8D00AD0168 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +110,7 @@
 				F49BBDFC215A966000AD0168 /* Main.storyboard */,
 				F49BBDFF215A966000AD0168 /* Info.plist */,
 				F49BBE00215A966000AD0168 /* NightVale.entitlements */,
+				F49BBE27215AAD8D00AD0168 /* HTTPClient.swift */,
 			);
 			path = NightVale;
 			sourceTree = "<group>";
@@ -111,6 +120,9 @@
 			children = (
 				F49BBE09215A966000AD0168 /* NightValeTests.swift */,
 				F49BBE0B215A966000AD0168 /* Info.plist */,
+				F495DAE6215ABBB800C20C33 /* MockURLSession.swift */,
+				F495DAE8215ABC5D00C20C33 /* MockURLSessionDataTask.swift */,
+				F495DAEA215AD38E00C20C33 /* weather.json */,
 			);
 			path = NightValeTests;
 			sourceTree = "<group>";
@@ -237,6 +249,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F495DAEB215AD38E00C20C33 /* weather.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,8 +267,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F49BBDF9215A965F00AD0168 /* ViewController.swift in Sources */,
-				F49BBDF7215A965F00AD0168 /* AppDelegate.swift in Sources */,
+				F49BBE25215AACEC00AD0168 /* AppDelegate.swift in Sources */,
+				F49BBE26215AACEC00AD0168 /* ViewController.swift in Sources */,
+				F49BBE28215AAD8D00AD0168 /* HTTPClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,6 +277,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F495DAE9215ABC5D00C20C33 /* MockURLSessionDataTask.swift in Sources */,
+				F495DAE7215ABBB800C20C33 /* MockURLSession.swift in Sources */,
 				F49BBE0A215A966000AD0168 /* NightValeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -421,6 +437,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"BUNDLE_LOADER[arch=*]" = "";
 				CODE_SIGN_ENTITLEMENTS = NightVale/NightVale.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
